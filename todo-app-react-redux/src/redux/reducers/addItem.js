@@ -1,24 +1,32 @@
 const initialState = {
   list: [],
 };
-const add_item_reducer = (state = initialState, action) => {
+const all_Reducers = (state = initialState, action) => {
+  console.log(state.list);
   switch (action.type) {
-    case "ADD_ITEM_TO_LIST": {
+    case "ADD_ITEM_TO_LIST":
       const { id, data } = action.payload;
       return {
-        ...state,
         list: [
-          ...state.list,
+          ...state.list, // to add previous value to the list which aer alredy present int the  list
           {
-            id: id,
-            data: data,
+            id,
+            data,
           },
         ],
       };
-    }
+    case "DELETE_ITEM_IN_LIST":
+      const filteredList = state.list.filter(
+        (val) => val.id !== action.payload
+      ); //like we did in array while creating a list
+      console.log(action.payload);
+      console.log(filteredList);
+      return {
+        list: filteredList, //is list me wohe values hoge jinke id match nhi kry ge
+      };
 
     default:
       return state;
   }
 };
-export { add_item_reducer };
+export { all_Reducers, initialState };
