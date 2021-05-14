@@ -1,5 +1,8 @@
 import { combineReducers } from "redux";
-import { addItem } from "../actions";
+import { all_Reducers } from "./addItem";
+// import { delete_item_reducer } from "./deleteItem";
 
-const rootReducer = combineReducers({ addItem });
+const rootReducer = combineReducers({
+  all_Reducers /* delete_item_reducer */,
+});
 export { rootReducer };
