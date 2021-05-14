@@ -7,4 +7,10 @@ function addItem(itemValue) {
     },
   };
 }
-export { addItem };
+function deleteItem(deleteItemIndex) {
+  return {
+    type: "DELETE_ITEM_IN_LIST",
+    payload: deleteItemIndex,
+  };
+}
+export { addItem, deleteItem };
