@@ -1,10 +1,12 @@
 const initialState = {
   list: [],
 };
+const ADD_ITEM = "ADD_ITEM_TO_LIST";
+const DELETE_ITEM = "DELETE_ITEM_IN_LIST";
 const all_Reducers = (state = initialState, action) => {
   console.log(state.list);
   switch (action.type) {
-    case "ADD_ITEM_TO_LIST":
+    case ADD_ITEM:
       const { id, data } = action.payload;
       return {
         list: [
@@ -15,7 +17,7 @@ const all_Reducers = (state = initialState, action) => {
           },
         ],
       };
-    case "DELETE_ITEM_IN_LIST":
+    case DELETE_ITEM:
       const filteredList = state.list.filter(
         (val) => val.id !== action.payload
       ); //like we did in array while creating a list
